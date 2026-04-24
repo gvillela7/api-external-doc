@@ -37,6 +37,7 @@
         "description": "Autentique-se usando credenciais do cliente (client credentials) para obter um token de acesso. Para obter seu `client_secret`, entre em contato com o suporte em suporte@jwtransportes.com.br.\n\n**Cabeçalhos obrigatórios:**\nContent-Type: application/json,\nX-Access-Service: external (obrigatório).\n\n**Segurança:**\nMantenha suas credenciais de cliente em segurança e nunca as exponha em código do lado do cliente (client-side) ou em repositórios públicos.",
         "summary": "External Login with Client Credentials",
         "tags": ["Auth"],
+        "security": [],
         "servers": [
           {
             "url": "https://api-auth-staging.zarpx.com/v1",
@@ -1227,12 +1228,12 @@
           "client_secret": {
             "type": "string",
             "description": "Client secret for authentication. To obtain your client_secret, please contact support at suporte@jwtransportes.com.br",
-            "example": "8D1HBaEN4hzxQ8euh(*&ÛHUGHT6tuygg"
+            "example": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
           },
           "client_id": {
             "type": "string",
             "description": "Client identifier",
-            "example": "intertouring"
+            "example": "seu_client_id"
           },
           "grant_type": {
             "type": "string",
@@ -1271,7 +1272,7 @@
           "access_token": {
             "type": "string",
             "description": "JWT access token for API authentication",
-            "example": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzbXF4S3lDcUl2UkR0LU1pWEh6Y09jeHJObS03cHBYYzNwcGtaR09XRnU0In0..."
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.EXAMPLE_PAYLOAD.EXAMPLE_SIGNATURE"
           },
           "expires_in": {
             "type": "integer",
@@ -1286,12 +1287,12 @@
           "refresh_token": {
             "type": "string",
             "description": "JWT refresh token for obtaining new access tokens",
-            "example": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyNjAzODcyYi0yODEzLTRmYTktOWM2Ny1lZTYwYTE2YmJmYjgifQ..."
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.EXAMPLE_REFRESH_PAYLOAD.EXAMPLE_SIGNATURE"
           },
           "session_state": {
             "type": "string",
             "description": "Session state identifier",
-            "example": "b9682919-9069-44cc-8896-57c5c29c1b03"
+            "example": "00000000-0000-0000-0000-000000000000"
           },
           "token_type": {
             "type": "string",
@@ -1611,7 +1612,10 @@
               "properties": { "authentication": { "const": true } },
               "required": ["authentication"]
             },
-            "then": { "required": ["token"] }
+            "then": {
+              "properties": { "token": { "type": "string" } },
+              "required": ["token"]
+            }
           }
         ],
         "title": "WebHookCreateRequest"
@@ -1638,7 +1642,10 @@
               "properties": { "authentication": { "const": true } },
               "required": ["authentication"]
             },
-            "then": { "required": ["token"] }
+            "then": {
+              "properties": { "token": { "type": "string" } },
+              "required": ["token"]
+            }
           }
         ],
         "title": "WebHookUpdateRequest"
