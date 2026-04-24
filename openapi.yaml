@@ -375,7 +375,14 @@
           }
         },
         "responses": {
-          "204": { "description": "Nenhum corpo retornado na resposta" },
+          "200": {
+            "description": "Serviço atualizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ServiceShowResponse" }
+              }
+            }
+          },
           "400": { "$ref": "#/components/responses/ValidationException" },
           "401": { "$ref": "#/components/responses/AuthenticationException" },
           "403": {
@@ -404,12 +411,12 @@
           {
             "label": "JavaScript (Axios)",
             "lang": "javascript",
-            "source": "const axios = require('axios');\n\nconst serviceMapId = 123;\n\nconst response = await axios.patch(\n  `https://api-staging.zarpx.com/api/v1/services/update/${serviceMapId}`,\n  {\n    start_date: '2025-11-15',\n    start_time: '14:00',\n    description: 'Descrição atualizada'\n  },\n  {\n    headers: {\n      'Authorization': `Bearer ${accessToken}`,\n      'Content-Type': 'application/json',\n      'X-Access-Service': 'external'\n    }\n  }\n);\n\nconsole.log(response.status); // 204"
+            "source": "const axios = require('axios');\n\nconst serviceMapId = 123;\n\nconst response = await axios.patch(\n  `https://api-staging.zarpx.com/api/v1/services/update/${serviceMapId}`,\n  {\n    start_date: '2025-11-15',\n    start_time: '14:00',\n    description: 'Descrição atualizada'\n  },\n  {\n    headers: {\n      'Authorization': `Bearer ${accessToken}`,\n      'Content-Type': 'application/json',\n      'X-Access-Service': 'external'\n    }\n  }\n);\n\nconsole.log(response.data); // serviço atualizado"
           },
           {
             "label": "PHP (Guzzle)",
             "lang": "php",
-            "source": "<?php\nuse GuzzleHttp\\Client;\n\n$client = new Client();\n$serviceMapId = 123;\n\n$response = $client->patch(\"https://api-staging.zarpx.com/api/v1/services/update/{$serviceMapId}\", [\n    'headers' => [\n        'Authorization' => 'Bearer ' . $accessToken,\n        'Content-Type' => 'application/json',\n        'X-Access-Service' => 'external',\n    ],\n    'json' => [\n        'start_date' => '2025-11-15',\n        'start_time' => '14:00',\n        'description' => 'Descrição atualizada',\n    ],\n]);\n\necho $response->getStatusCode(); // 204"
+            "source": "<?php\nuse GuzzleHttp\\Client;\n\n$client = new Client();\n$serviceMapId = 123;\n\n$response = $client->patch(\"https://api-staging.zarpx.com/api/v1/services/update/{$serviceMapId}\", [\n    'headers' => [\n        'Authorization' => 'Bearer ' . $accessToken,\n        'Content-Type' => 'application/json',\n        'X-Access-Service' => 'external',\n    ],\n    'json' => [\n        'start_date' => '2025-11-15',\n        'start_time' => '14:00',\n        'description' => 'Descrição atualizada',\n    ],\n]);\n\n$data = json_decode($response->getBody(), true);\nprint_r($data); // serviço atualizado"
           }
         ]
       }
