@@ -341,12 +341,12 @@
           {
             "label": "JavaScript (Axios)",
             "lang": "javascript",
-            "source": "const axios = require('axios');\n\nconst response = await axios.post(\n  'https://api-staging.zarpx.com/api/v1/services/create',\n  [\n    {\n      start_date: '2025-10-31',\n      start_time: '11:30',\n      pax: 2,\n      flight: 'JHG0987',\n      service_type_id: '66c8d82098b4b246ec02a1c2',\n      vehicle_type_id: '66aa78be9613f729b9017de2',\n      description: 'Levar para o barra shopping',\n      participants: [\n        { name: 'Gustavo', phone: '21 9 96154987' }\n      ],\n      route: [\n        {\n          origin: { name: 'Ed. Central', street: 'Av. Rio Branco' },\n          destination: { name: 'SDU', street: 'Aeroporto Santos Dumont' },\n          time: 30,\n          km: 15.5\n        }\n      ]\n    }\n  ],\n  {\n    headers: {\n      'Authorization': `Bearer ${accessToken}`,\n      'Content-Type': 'application/json',\n      'X-Access-Service': 'external'\n    }\n  }\n);\n\nconsole.log(response.data);"
+            "source": "const axios = require('axios');\n\nconst response = await axios.post(\n  'https://api-staging.zarpx.com/api/v1/services/create',\n  [\n    {\n      start_date: '2025-10-31',\n      start_time: '11:30',\n      pax: 2,\n      flight: 'JHG0987',\n      service_type_id: '66c8d82098b4b246ec02a1c2',\n      vehicle_type_id: '66aa78be9613f729b9017de2',\n      description: 'Levar para o barra shopping',\n      participants: [\n        { name: 'Fulano', phone: '(11) 99999-9999' }\n      ],\n      route: [\n        {\n          origin: { name: 'Ed. Central', street: 'Av. Rio Branco' },\n          destination: { name: 'SDU', street: 'Aeroporto Santos Dumont' },\n          time: 30,\n          km: 15.5\n        }\n      ]\n    }\n  ],\n  {\n    headers: {\n      'Authorization': `Bearer ${accessToken}`,\n      'Content-Type': 'application/json',\n      'X-Access-Service': 'external'\n    }\n  }\n);\n\nconsole.log(response.data);"
           },
           {
             "label": "PHP (Guzzle)",
             "lang": "php",
-            "source": "<?php\nuse GuzzleHttp\\Client;\n\n$client = new Client();\n\n$response = $client->post('https://api-staging.zarpx.com/api/v1/services/create', [\n    'headers' => [\n        'Authorization' => 'Bearer ' . $accessToken,\n        'Content-Type' => 'application/json',\n        'X-Access-Service' => 'external',\n    ],\n    'json' => [\n        [\n            'start_date' => '2025-10-31',\n            'start_time' => '11:30',\n            'pax' => 2,\n            'flight' => 'JHG0987',\n            'service_type_id' => '66c8d82098b4b246ec02a1c2',\n            'vehicle_type_id' => '66aa78be9613f729b9017de2',\n            'description' => 'Levar para o barra shopping',\n            'participants' => [\n                ['name' => 'Gustavo', 'phone' => '21 9 96154987'],\n            ],\n            'route' => [\n                [\n                    'origin' => ['name' => 'Ed. Central', 'street' => 'Av. Rio Branco'],\n                    'destination' => ['name' => 'SDU', 'street' => 'Aeroporto Santos Dumont'],\n                    'time' => 30,\n                    'km' => 15.5,\n                ],\n            ],\n        ],\n    ],\n]);\n\n$data = json_decode($response->getBody(), true);\nprint_r($data);"
+            "source": "<?php\nuse GuzzleHttp\\Client;\n\n$client = new Client();\n\n$response = $client->post('https://api-staging.zarpx.com/api/v1/services/create', [\n    'headers' => [\n        'Authorization' => 'Bearer ' . $accessToken,\n        'Content-Type' => 'application/json',\n        'X-Access-Service' => 'external',\n    ],\n    'json' => [\n        [\n            'start_date' => '2025-10-31',\n            'start_time' => '11:30',\n            'pax' => 2,\n            'flight' => 'JHG0987',\n            'service_type_id' => '66c8d82098b4b246ec02a1c2',\n            'vehicle_type_id' => '66aa78be9613f729b9017de2',\n            'description' => 'Levar para o barra shopping',\n            'participants' => [\n                ['name' => 'Fulano', 'phone' => '(11) 99999-9999'],\n            ],\n            'route' => [\n                [\n                    'origin' => ['name' => 'Ed. Central', 'street' => 'Av. Rio Branco'],\n                    'destination' => ['name' => 'SDU', 'street' => 'Aeroporto Santos Dumont'],\n                    'time' => 30,\n                    'km' => 15.5,\n                ],\n            ],\n        ],\n    ],\n]);\n\n$data = json_decode($response->getBody(), true);\nprint_r($data);"
           }
         ]
       }
@@ -705,12 +705,12 @@
           {
             "label": "JavaScript (Axios)",
             "lang": "javascript",
-            "source": "const axios = require('axios');\n\nconst response = await axios.patch(\n  'https://api-staging.zarpx.com/api/v1/services/route/update',\n  {\n    route: [\n      {\n        id: '685969b6f1ff4feab8017c94',\n        service_id: '68ab34b4a8e45f6135093520',\n        origin: {\n          lat: -22.7868557,\n          long: -43.3130887,\n          name: 'Av. Nilo Peçanha, 5 - Centro, Duque de Caxias - RJ'\n        },\n        destination: {\n          lat: -22.8361732,\n          long: -43.2759661,\n          name: 'Rua Montevidéu, 820 - Penha, Rio de Janeiro - RJ'\n        },\n        time: 15,\n        km: 9.22\n      }\n    ]\n  },\n  {\n    headers: {\n      'Authorization': `Bearer ${accessToken}`,\n      'Content-Type': 'application/json',\n      'X-Access-Service': 'external'\n    }\n  }\n);\n\nconsole.log(response.status); // 204"
+            "source": "const axios = require('axios');\n\nconst response = await axios.patch(\n  'https://api-staging.zarpx.com/api/v1/services/route/update',\n  {\n    route: [\n      {\n        id: '685969b6f1ff4feab8017c94',\n        service_id: '68ab34b4a8e45f6135093520',\n        origin: {\n          name: 'Prefeitura de Duque de Caxias',\n          street: 'Av. Paulista, 1000 - Bela Vista, São Paulo - SP, 01310-100, Brasil',\n          lat: -23.5614,\n          long: -46.6559\n        },\n        destination: {\n          name: 'Maspe',\n          street: 'Rua das Flores, 100 - Centro, São Paulo - SP',\n          lat: -23.5505,\n          long: -46.6333\n        },\n        time: 15,\n        km: 9.22\n      }\n    ]\n  },\n  {\n    headers: {\n      'Authorization': `Bearer ${accessToken}`,\n      'Content-Type': 'application/json',\n      'X-Access-Service': 'external'\n    }\n  }\n);\n\nconsole.log(response.status); // 204"
           },
           {
             "label": "PHP (Guzzle)",
             "lang": "php",
-            "source": "<?php\nuse GuzzleHttp\\Client;\n\n$client = new Client();\n\n$response = $client->patch('https://api-staging.zarpx.com/api/v1/services/route/update', [\n    'headers' => [\n        'Authorization' => 'Bearer ' . $accessToken,\n        'Content-Type' => 'application/json',\n        'X-Access-Service' => 'external',\n    ],\n    'json' => [\n        'route' => [\n            [\n                'id' => '685969b6f1ff4feab8017c94',\n                'service_id' => '68ab34b4a8e45f6135093520',\n                'origin' => [\n                    'lat' => -22.7868557,\n                    'long' => -43.3130887,\n                    'name' => 'Av. Nilo Peçanha, 5 - Centro, Duque de Caxias - RJ',\n                ],\n                'destination' => [\n                    'lat' => -22.8361732,\n                    'long' => -43.2759661,\n                    'name' => 'Rua Montevidéu, 820 - Penha, Rio de Janeiro - RJ',\n                ],\n                'time' => 15,\n                'km' => 9.22,\n            ],\n        ],\n    ],\n]);\n\necho $response->getStatusCode(); // 204"
+            "source": "<?php\nuse GuzzleHttp\\Client;\n\n$client = new Client();\n\n$response = $client->patch('https://api-staging.zarpx.com/api/v1/services/route/update', [\n    'headers' => [\n        'Authorization' => 'Bearer ' . $accessToken,\n        'Content-Type' => 'application/json',\n        'X-Access-Service' => 'external',\n    ],\n    'json' => [\n        'route' => [\n            [\n                'id' => '685969b6f1ff4feab8017c94',\n                'service_id' => '68ab34b4a8e45f6135093520',\n                'origin' => [\n                    'name' => 'Prefeitura de Duque de Caxias',\n                    'street' => 'Av. Paulista, 1000 - Bela Vista, São Paulo - SP, 01310-100, Brasil',\n                    'lat' => -23.5614,\n                    'long' => -46.6559,\n                ],\n                'destination' => [\n                    'name' => 'Maspe',\n                    'street' => 'Rua das Flores, 100 - Centro, São Paulo - SP',\n                    'lat' => -23.5505,\n                    'long' => -46.6333,\n                ],\n                'time' => 15,\n                'km' => 9.22,\n            ],\n        ],\n    ],\n]);\n\necho $response->getStatusCode(); // 204"
           }
         ]
       }
@@ -810,7 +810,7 @@
                   "data": [
                     {
                       "id": "684b0f81fc0ad0be1d0d6042",
-                      "name": "Tarifário do Cristiano",
+                      "name": "Tarifário Padrão",
                       "type": "customer",
                       "disable": false,
                       "created_at": "2025-06-12T17:33:53.216Z",
@@ -1377,8 +1377,8 @@
               "description": "REQUIRED. Array de participantes. Pode ser vazio ([]).",
               "items": { "$ref": "#/components/schemas/ParticipantInput" },
               "example": [
-                { "name": "Gustavo", "phone": "21 9 96154987" },
-                { "name": "Maria", "phone": "21 9 96198786" }
+                { "name": "Fulano", "phone": "(11) 99999-9999" },
+                { "name": "Beltrana", "phone": "(11) 88888-8888" }
               ]
             },
             "route": {
@@ -1456,12 +1456,12 @@
           "name": {
             "type": ["string", "null"],
             "description": "Nome do participante.",
-            "example": "Gustavo"
+            "example": "Fulano"
           },
           "phone": {
             "type": ["string", "null"],
             "description": "Telefone do participante.",
-            "example": "21 9 96154987"
+            "example": "(11) 99999-9999"
           }
         },
         "title": "ParticipantInput"
@@ -1573,18 +1573,23 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "REQUIRED. Nome do local.",
-            "example": "Av. Nilo Peçanha, 5 - Centro, Duque de Caxias - RJ, 25010-142, Brasil"
+            "description": "REQUIRED. Nome do local (ex.: Maracanã, Hotel Hilton, Aeroporto de Guarulhos).",
+            "example": "Aeroporto de Guarulhos"
+          },
+          "street": {
+            "type": "string",
+            "description": "Endereço completo retornado pela API do Google (ex.: Av. Paulista, 1265, São Paulo - SP). Opcional.",
+            "example": "Rodovia Hélio Smidt, s/n - Cumbica, Guarulhos - SP, 07190-100, Brasil"
           },
           "lat": {
             "type": ["number", "null"],
             "description": "Latitude.",
-            "example": -22.7868557
+            "example": -23.4356
           },
           "long": {
             "type": ["number", "null"],
             "description": "Longitude.",
-            "example": -43.3130887
+            "example": -46.4731
           }
         },
         "required": ["name"],
@@ -1939,7 +1944,7 @@
         "description": "Tarifário ativo do cliente com suas configurações de preço expandidas.",
         "properties": {
           "id": { "type": "string", "example": "684b0f81fc0ad0be1d0d6042" },
-          "name": { "type": "string", "example": "Tarifário do Cristiano" },
+          "name": { "type": "string", "example": "Tarifário Padrão" },
           "type": { "type": "string", "example": "customer" },
           "disable": { "type": "boolean", "example": false },
           "created_at": { "type": "string", "format": "date-time", "example": "2025-06-12T17:33:53.216Z" },
