@@ -171,7 +171,7 @@
     "/services/filter": {
       "get": {
         "operationId": "service.filter",
-        "description": "Filtra serviços por parâmetros com suporte a paginação. Ex.: /services/filter?range_date=2025-01-31,2026-10-31&status=Created&per_page=25&page=1",
+        "description": "Filtra serviços por parâmetros com suporte a paginação. Use groupBy=true para agrupar os resultados por data. Ex.: /services/filter?range_date=2025-01-31,2026-10-31&status=Created&groupBy=true&per_page=25&page=1",
         "summary": "Filter Services",
         "tags": ["Service"],
         "security": [{ "bearerAuth": [] }],
@@ -239,6 +239,13 @@
             }
           },
           {
+            "name": "groupBy",
+            "in": "query",
+            "required": false,
+            "description": "Quando true, agrupa os resultados por data de início (start_date). Padrão: false.",
+            "schema": { "type": "boolean", "default": false }
+          },
+          {
             "name": "per_page",
             "in": "query",
             "required": false,
@@ -283,12 +290,12 @@
           {
             "label": "JavaScript (Axios)",
             "lang": "javascript",
-            "source": "const axios = require('axios');\n\nconst response = await axios.get(\n  'https://api-staging.zarpx.com/api/v1/services/filter',\n  {\n    headers: {\n      'Authorization': `Bearer ${accessToken}`,\n      'X-Access-Service': 'external'\n    },\n    params: {\n      range_date: '2025-01-31,2026-10-31',\n      status: 'Created',\n      file: '1234',\n      per_page: 25,\n      page: 1\n    }\n  }\n);\n\nconsole.log(response.data);"
+            "source": "const axios = require('axios');\n\nconst response = await axios.get(\n  'https://api-staging.zarpx.com/api/v1/services/filter',\n  {\n    headers: {\n      'Authorization': `Bearer ${accessToken}`,\n      'X-Access-Service': 'external'\n    },\n    params: {\n      range_date: '2025-01-31,2026-10-31',\n      status: 'Created',\n      file: '1234',\n      groupBy: true,\n      per_page: 25,\n      page: 1\n    }\n  }\n);\n\nconsole.log(response.data);"
           },
           {
             "label": "PHP (Guzzle)",
             "lang": "php",
-            "source": "<?php\nuse GuzzleHttp\\Client;\n\n$client = new Client();\n\n$response = $client->get('https://api-staging.zarpx.com/api/v1/services/filter', [\n    'headers' => [\n        'Authorization' => 'Bearer ' . $accessToken,\n        'X-Access-Service' => 'external',\n    ],\n    'query' => [\n        'range_date' => '2025-01-31,2026-10-31',\n        'status' => 'Created',\n        'file' => '1234',\n        'per_page' => 25,\n        'page' => 1,\n    ],\n]);\n\n$data = json_decode($response->getBody(), true);\nprint_r($data);"
+            "source": "<?php\nuse GuzzleHttp\\Client;\n\n$client = new Client();\n\n$response = $client->get('https://api-staging.zarpx.com/api/v1/services/filter', [\n    'headers' => [\n        'Authorization' => 'Bearer ' . $accessToken,\n        'X-Access-Service' => 'external',\n    ],\n    'query' => [\n        'range_date' => '2025-01-31,2026-10-31',\n        'status' => 'Created',\n        'file' => '1234',\n        'groupBy' => true,\n        'per_page' => 25,\n        'page' => 1,\n    ],\n]);\n\n$data = json_decode($response->getBody(), true);\nprint_r($data);"
           }
         ]
       }
