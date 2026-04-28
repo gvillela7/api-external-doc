@@ -1945,7 +1945,7 @@
       },
       "ServiceFilterData": {
         "type": "object",
-        "description": "Dados do serviço retornados no filtro. Não inclui relacionamentos carregados (service_type, vehicle_type e route_service não são populados).",
+        "description": "Dados do serviço retornados no filtro, com relacionamentos carregados (service_type, vehicle_type, driver, vehicle e route_service).",
         "properties": {
           "id": { "type": "string" },
           "service_map_id": { "type": "integer" },
@@ -1978,7 +1978,11 @@
           "travel_time": { "type": "number" },
           "external": { "type": "string", "enum": ["Created", "Updated", "Accepted"] },
           "created_at": { "type": "string", "format": "date-time" },
-          "updated_at": { "type": "string", "format": "date-time" }
+          "updated_at": { "type": "string", "format": "date-time" },
+          "route_service": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/RouteService" }
+          }
         },
         "title": "ServiceFilterData"
       },
