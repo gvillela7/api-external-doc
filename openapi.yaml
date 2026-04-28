@@ -1892,8 +1892,8 @@
         "properties": {
           "name": { "type": "string" },
           "street": { "type": "string" },
-          "lat": { "type": ["string", "null"] },
-          "long": { "type": ["string", "null"] }
+          "lat": { "type": ["number", "null"] },
+          "long": { "type": ["number", "null"] }
         },
         "title": "Location"
       },
