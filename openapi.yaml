@@ -603,14 +603,14 @@
                     "origin": {
                       "name": "Hotel Ibis",
                       "street": "Rua X, 100",
-                      "lat": "-23.5",
-                      "long": "-46.6"
+                      "lat": -23.5,
+                      "long": -46.6
                     },
                     "destination": {
                       "name": "Aeroporto GRU",
                       "street": "Rodovia Hélio Smidt",
-                      "lat": "-23.4",
-                      "long": "-46.5"
+                      "lat": -23.4,
+                      "long": -46.5
                     },
                     "time": 45.0,
                     "km": 32.5
@@ -1577,14 +1577,14 @@
             "example": "Av. Rio Branco"
           },
           "lat": {
-            "type": ["string", "null"],
+            "type": ["number", "null"],
             "description": "Latitude.",
-            "example": "-22.9068"
+            "example": -22.9068
           },
           "long": {
-            "type": ["string", "null"],
+            "type": ["number", "null"],
             "description": "Longitude.",
-            "example": "-43.1729"
+            "example": -43.1729
           }
         },
         "required": ["name", "street"],
